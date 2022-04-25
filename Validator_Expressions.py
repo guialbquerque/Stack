@@ -41,17 +41,19 @@ class StackValidator:
             return self.__values[self.__top]
 
 
-S = str(input("type one expression \n"))
-# a{b(c)}
-validator = StackValidator(len(S))
-for i in range(len(S)):
-    ch = S[i]
-    if ch == '{' or ch == '(' or ch == '[':
-        validator.Stack_Up(ch)
-    elif ch == '}' or ch == ')' or ch == ']':
-        if not validator.Stack_empty():
-            chx = str(validator.Unstack())
-            if (ch == '}' and chx != '{') or (ch == ')' and chx != '(') or (ch == ']' and chx != '['):
-                print(f"Error! {ch} in position {i}")
-                break
+        
+if __name == '__main__':        
+    S = str(input("type one expression \n"))
+    # a{b(c)}
+    validator = StackValidator(len(S))
+    for i in range(len(S)):
+        ch = S[i]
+        if ch == '{' or ch == '(' or ch == '[':
+            validator.Stack_Up(ch)
+        elif ch == '}' or ch == ')' or ch == ']':
+            if not validator.Stack_empty():
+                chx = str(validator.Unstack())
+                if (ch == '}' and chx != '{') or (ch == ')' and chx != '(') or (ch == ']' and chx != '['):
+                    print(f"Error! {ch} in position {i}")
+                    break
 
